@@ -1,0 +1,41 @@
+<div *ngIf="cheak ==true" class="no-data-message">
+    <div class="text-center mt-3"> 
+        <img src="../../../assets/delet.svg">
+       
+       <h3>No Data yet !</h3>
+  </div></div>
+  <div  class="data-content"    >
+    <div class="row mt-2"  >
+        <div class="col-md-4"  *ngFor="let item of favlist.data">
+            <div class="card rounded-5" style="width: 18rem;">
+                <div class="position-relative">
+                    <img 
+                        *ngIf="item.recipe.imagePath; else empty"
+                        [src]="'https://upskilling-egypt.com:3006/'+item.recipe.imagePath" alt="recipe" class=" w-100 card-img-top bg-info rounded-bottom-5 rounded-top-2 ">
+                    <ng-template #empty>
+                        <img
+                        class="card-img-top bg-info rounded-bottom-4 rounded-top-2"
+                        src="../../../../assets/Rectangle 3463252.svg" class="w-100 "
+                        >
+                    </ng-template>
+                
+               
+                <a (click)="deletefav(item.id)" class="badge shadow-sm rounded-pill bg-light position-absolute top-0 end-0 m-2  text-danger ">
+                    <mat-icon>delete</mat-icon>
+                </a>
+                <div class="card-body">
+                  <h5 class="card-title">{{item.recipe.name}}</h5>
+                  <p class="card-text h6">{{item.recipe.description}}</p>
+                  
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+ 
+
+

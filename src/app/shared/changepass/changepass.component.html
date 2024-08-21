@@ -1,0 +1,38 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="auth-card p-5">
+                     <div class="text-center">
+                        <img src="../../../../assets/icon.svg" alt="123">
+                     </div>
+                    
+ <div  >
+    <form  [formGroup]="changeform">
+         <div class="form" >
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile-screen"></i></span>
+            <input formControlName="oldPassword" type="password" class="form-control" placeholder="oldPassword" aria-label="Username" aria-describedby="basic-addon1">
+           </div>
+           <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile-screen"></i></span>
+            <input formControlName="newPassword" type="password" class="form-control" placeholder="newPassword" aria-label="Username" aria-describedby="basic-addon1">
+           </div>
+           <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile-screen"></i></span>
+            <input formControlName="confirmNewPassword" type="password" class="form-control" placeholder="confirmNewPassword" aria-label="Username" aria-describedby="basic-addon1">
+           </div>
+<!--          -->
+         </div>
+ </form>
+       </div></div>
+            </div>
+        </div>
+        <div mat-dialog-actions class="d-flex justify-content-between">
+            <button mat-button (click)="onNoClick()" class=" p-3 rounded ">No Thanks</button>
+            <button mat-button [mat-dialog-close]="changeform.value" cdkFocusInitial class=" p-3 rounded ">changepassword</button> 
+           <!-- !!!مهممم دا الي هيتبعت بعد ما اقفل data -->
+         
+        </div>
+    </div>
+</section>

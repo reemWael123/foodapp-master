@@ -1,0 +1,75 @@
+
+     
+<div class="row">
+   <div class="col-md-9">
+      <div class="card shadow border-0 p-4 m-4 w-75 mx-auto ">
+         <form  [formGroup]="profileform" (ngSubmit)="whenupdate(profileform)" >
+           <mat-form-field appearance="fill" class="w-50 m-0">
+              <mat-label> Name</mat-label>
+              <input matInput placeholder="Placeholder" formControlName="userName">
+           </mat-form-field>
+           <mat-form-field appearance="fill" class="w-50 ">
+              <mat-label>email</mat-label>
+              <input matInput placeholder="Placeholder" formControlName="email">
+           </mat-form-field>
+        <mat-form-field appearance="fill" class="w-100">
+         <mat-label>country</mat-label>
+         <input matInput placeholder="Placeholder" formControlName="country">
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="w-50">
+         <mat-label>phoneNumber</mat-label>
+         <input matInput placeholder="Placeholder" formControlName="phoneNumber" type="text">
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="w-50">
+         <mat-label>role</mat-label>
+         <input matInput placeholder="Placeholder" formControlName="group">
+      </mat-form-field>
+        
+      <mat-form-field appearance="fill" class="w-100">
+         <mat-label>confirmPassword</mat-label>
+         <input matInput placeholder="Placeholder" formControlName="confirmPassword">
+      </mat-form-field>
+      <div class="text-end">
+          <button class=" p-3 rounded-2 m-2 ">save</button>
+          <p class="alert alert-danger" *ngIf="erroMsg">{{erroMsg}} </p>
+      </div>
+      
+         </form>
+         
+            </div>
+   </div>
+   <div class="col-md-3 mt-3">
+      <ngx-dropzone (change)="onSelect($event)" >
+         <ngx-dropzone-label>Upload img</ngx-dropzone-label>
+         <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files"  [removable]="true" (removed)="onRemove(f)" [file]="f">
+             <!-- <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label> -->
+           </ngx-dropzone-image-preview>
+     </ngx-dropzone>
+      <!-- <div>
+         <img 
+         *ngIf="profilList.imagePath; else empty"
+         [src]="'https://upskilling-egypt.com:3006/' + profilList.imagePath" 
+       
+         class="w-100 card-img-top bg-info rounded-bottom-5 rounded-top-2 w-25">
+       <ng-template #empty>
+         <img
+           src="../../../../assets/Rectangle 3463252.svg" 
+           alt="placeholder" 
+           class="w-100 card-img-top bg-info rounded-bottom-4 rounded-top-2 w-25">
+       </ng-template>
+       </div>  -->
+   </div>
+</div>
+        
+    
+
+     
+      
+      
+      
+   
+  
+    
+    
+    
+    

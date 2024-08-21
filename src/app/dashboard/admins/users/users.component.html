@@ -1,0 +1,79 @@
+<section>
+    <div class="page-header ">
+        <div class="row mt-2 align-items-center text-light">
+            <div class="col-md-8">
+                <h1>Users <span class="text-muted text-light">table</span></h1>    
+                
+            </div>
+            <div class="col-md-4">
+                <img src="../../../../assets/eating a variety of foods-amico.svg" class="w-100 sora">
+            </div>
+        </div>
+    </div>
+   
+      
+       
+        <table class="table  table-striped mt-2">
+            <thead>
+                <th>Name</th>
+                <th>image</th>
+                <th>email</th>
+                <th>country</th>
+        
+                <th>role</th>
+                <th>phoneNumber</th>
+                <th>creationDate</th>
+                <th>modificationDate</th>
+                <th>Action</th>
+            </thead>
+            <tbody  >
+    <tr *ngFor="let item of mylist?.data">
+        <td>{{item.userName}} </td>
+        <td> <img 
+            *ngIf="item.imagePath; else empty"
+            [src]="'https://upskilling-egypt.com:3006/'+item.imagePath" alt="recipe" class="w-25 h-75">
+        <ng-template #empty>
+            <img
+            src="../../../../assets/Rectangle 3463252.svg" class="w-25 h-25"
+            >
+        </ng-template>
+        </td>
+
+        <td>{{item.email}} </td>
+        <td>{{item.country}} </td>
+        <td>{{item.group.name}} </td>
+        <td>{{item.phoneNumber}} </td>
+    
+ 
+        <td>{{item.creationDate|date:'dd/mm/yyyy'}}</td>
+        <td>{{item.modificationDate|date:'dd/mm/yyyy'}}</td>
+        <td><button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="openviewDialog(item)" >
+              <mat-icon>visibility</mat-icon>
+              <span>view</span>
+            </button>
+            
+            <button mat-menu-item (click)="opendeleteDialog(item.id)">
+              <mat-icon>delete</mat-icon>
+              <span >delete</span>
+            </button>
+          </mat-menu></td>
+    </tr>
+            </tbody>
+        </table>
+        <mat-paginator #paginator
+        class="demo-paginator"
+        (page)="handlePageEvent($event)"
+        [length]="mylist?.totalNumberOfRecords"
+        [pageSize]="pageSize"
+        [pageSizeOptions]=" [5,10,50]"
+     
+        [pageIndex]="pageIndex"
+        aria-label="Select page">
+</mat-paginator>
+
+  
+</section>

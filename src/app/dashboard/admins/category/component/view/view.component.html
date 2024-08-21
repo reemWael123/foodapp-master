@@ -1,0 +1,45 @@
+<h1 mat-dialog-title>Hi </h1>
+<div mat-dialog-content >
+  <p>your recipe</p>
+  <div class="row">
+ 
+    <div class="col-md-6"> 
+        <mat-form-field >
+        <mat-label>id</mat-label>
+        <input matInput [(ngModel)]="data.id" disabled>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6"> 
+         <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="data.name"  disabled>
+      </mat-form-field>
+    </div>
+  </div>
+
+    <div class="row">  
+        
+        <div class="col-md-6">
+           <mat-form-field>
+        <mat-label>modificationDate</mat-label>
+        <input matInput [(ngModel)]="data.modificationDate"  disabled>
+      </mat-form-field></div>
+  
+  <div class="col-md-6">
+     <mat-form-field>
+    <mat-label>creationDate</mat-label>
+    <input matInput [(ngModel)]="data.creationDate"  disabled>
+  </mat-form-field>
+</div></div>
+
+ 
+
+ 
+ 
+</div>
+<div mat-dialog-actions class="justify-content-between">
+  <button mat-button (click)="onNoClick()">CLOSE</button>
+  <button mat-button [mat-dialog-close]="data.id" cdkFocusInitial>Ok</button>
+</div>
+
+ 

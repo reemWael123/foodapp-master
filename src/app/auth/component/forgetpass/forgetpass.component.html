@@ -1,0 +1,30 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="auth-card p-5">
+                     <div class="text-center">
+                        <img src="../../../../assets/icon.svg" alt="123">
+                     </div>
+                     <div class="tittel">
+                        <h3>Forget Password?</h3>
+                        <p> please enter your email</p>
+                     </div>
+ <!-- <div  [formGroup]="loginform" (ngSubmit)="whenlog(loginform)"> -->
+    <form [formGroup]="forgetform" (ngSubmit)="whenforget(forgetform)">
+         <div class="form" >
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile-screen"></i></span>
+            <input formControlName="email" type="email" class="form-control" placeholder="enter your email" aria-label="Username" aria-describedby="basic-addon1">
+           </div>
+      
+       >
+    <button class=" w-100 m-1 p-2"  type="submit" >submit</button>
+    <p class="alert alert-danger" *ngIf="erroMsg">{{erroMsg}} </p>
+    </div>
+ </form>
+       </div></div>
+            </div>
+        </div>
+  
+</section>

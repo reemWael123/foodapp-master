@@ -1,0 +1,131 @@
+<section>
+    <div class="page-header ">
+        <div class="row mt-2 align-items-center text-light">
+            <div class="col-md-8">
+                <h1> recipes <span class="text-muted text-light"> Item</span></h1>    
+                <p>You can now add your items that any user can order it from the Application and you can edit</p>
+            </div>
+            <div class="col-md-4">
+                <img src="../../../../assets/eating a variety of foods-amico.svg" class="w-100 sora">
+            </div>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-10">
+            <h2 class="fs-5">recipes Table Details</h2>
+            <span>You can check all details</span>
+        </div>
+        <div class="col-md-2">
+            <button class=" p-2 rounded-3 me-auto" routerLink="/dashboard/admins/recipes/add">add new</button>
+        </div>
+        <div class="row">  
+            <div class="col-md-6">
+                 <mat-form-field appearance="fill"class="w-100" >
+            <mat-label>search by name</mat-label>
+            <input matInput placeholder="Placeholder" [(ngModel)]="searchkey" (keydown.enter)="ongetrec()" class="w-100">
+            <mat-icon matSuffix>search</mat-icon>
+           
+          </mat-form-field></div>
+
+          <div class="col-md-3">
+          <mat-form-field>
+            <mat-label>tag</mat-label>
+            <mat-select  [(ngModel)]="tagId" (selectionChange)="ongetrec()">
+                <mat-option>all</mat-option>
+              <mat-option [value]="item.id" *ngFor="let item of taglist">{{item.name}}</mat-option>
+              
+            </mat-select>
+          </mat-form-field>
+        </div>
+          <div class="col-md-3">
+          
+       
+            <mat-form-field>
+              <mat-label>category</mat-label>
+              <mat-select [(ngModel)]="categoryId" (selectionChange)="ongetrec()">
+                <mat-option>all</mat-option>
+                <mat-option [value]="item.id" *ngFor="let item of mycat">{{item.name}}</mat-option>
+              
+              </mat-select>
+            </mat-form-field>
+        </div>
+      
+        </div>
+    </div>
+      
+       
+        <table class="table  table-striped">
+            <thead>
+                <th>Name</th>
+                <th>image</th>
+                <th>description</th>
+                <th>price</th>
+                <th>tag</th>
+                <th>category</th>
+                <th>creationDate</th>
+                <th>modificationDate</th>
+                <th>Action</th>
+            </thead>
+            <tbody  >
+    <tr *ngFor="let item of mylist?.data">
+        <td>{{item.name}} </td>
+        <td> <img 
+            *ngIf="item.imagePath; else empty"
+            [src]="'https://upskilling-egypt.com:3006/'+item.imagePath" alt="recipe" class="w-25 h-75">
+        <ng-template #empty>
+            <img
+            src="../../../../assets/Rectangle 3463252.svg" class="w-25 h-25"
+            >
+        </ng-template>
+        </td>
+
+        <td>{{item.description}} </td>
+        <td>{{item.price}} </td>
+        <td>{{item.tag.name}} </td>
+        <td>
+            <ng-container  *ngIf="item.category.length<=0">
+                <span>no category</span>
+            </ng-container>
+            
+        <ng-container *ngFor="let item of item.category 
+        let islast=last" >
+            {{item.name}} <span *ngIf="!islast">,</span>
+        </ng-container>
+        </td>
+        <!-- <td>{{item.category}} </td> -->
+ 
+        <td>{{item.creationDate|date:'dd/mm/yyyy'}}</td>
+        <td>{{item.modificationDate|date:'dd/mm/yyyy'}}</td>
+        <td><button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="openviewDialog(item.id,item.name,item.creationDate,item.modificationDate)">
+              <mat-icon>visibility</mat-icon>
+              <span>view</span>
+            </button>
+            <button mat-menu-item [routerLink]="['edit',item.id]">
+              <mat-icon>edit</mat-icon>
+              <span>edit</span>
+            </button>
+            <button mat-menu-item (click)="opendeleteDialog(item.id)">
+              <mat-icon>delete</mat-icon>
+              <span >delete</span>
+            </button>
+          </mat-menu></td>
+    </tr>
+            </tbody>
+        </table>
+        <mat-paginator #paginator
+        class="demo-paginator"
+        (page)="handlePageEvent($event)"
+        [length]="mylist?.totalNumberOfRecords"
+        [pageSize]="pageSize"
+        [pageSizeOptions]=" [5,10,50]"
+     
+        [pageIndex]="pageIndex"
+        aria-label="Select page">
+</mat-paginator>
+
+  
+</section>

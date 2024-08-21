@@ -1,0 +1,51 @@
+
+<div class="card shadow border-0 p-4 m-4 w-75 mx-auto">
+   <form  [formGroup]="recipeform" (ngSubmit)="senddata(recipeform)">
+    
+    <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Recipe Name</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="name">
+     </mat-form-field>
+     <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Recipe price</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="price">
+     </mat-form-field>
+   
+        <mat-form-field class="w-100">
+          <mat-label>tag</mat-label>
+          <mat-select  formControlName="tagId"  >
+       
+            <mat-option [value]="item.id" *ngFor="let item of taglist">{{item.name}}</mat-option>
+            
+          </mat-select>
+        </mat-form-field>
+      
+    
+        
+     
+          <mat-form-field class="w-100">
+            <mat-label>category</mat-label>
+            <mat-select  multiple formControlName="categoriesIds">
+          
+              <mat-option [value]="item.id" *ngFor="let item of mycat">{{item.name}}</mat-option>
+            
+            </mat-select>
+          </mat-form-field>
+          
+  <mat-form-field class="w-100">
+    <mat-label>Leave a comment</mat-label>
+    <textarea matInput placeholder="discrption." formControlName="description"></textarea>
+  </mat-form-field>
+  <ngx-dropzone (change)="onSelect($event)" formControlName=" recipeImage">
+    <ngx-dropzone-label >Upload img</ngx-dropzone-label>
+    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files"  [removable]="true" (removed)="onRemove(f)" [file]="f">
+        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+      </ngx-dropzone-image-preview>
+</ngx-dropzone>
+<div class="text-end">
+    <button class=" p-3 rounded-2 m-2 ">save</button>
+    <button class="bg-dark-subtle  p-3 rounded-2 m-2 " type="button">cancel</button>
+</div>
+   </form> 
+      </div>
+

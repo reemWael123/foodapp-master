@@ -1,0 +1,53 @@
+<section>
+    
+<div mat-dialog-content >
+  
+    <img 
+            *ngIf="data.imagePath; else empty"
+            [src]="'https://upskilling-egypt.com:3006/'+data.imagePath" alt="recipe" class="w-25 text-center h-25">
+        <ng-template #empty>
+            <img
+            src="../../../../assets/Rectangle 3463252.svg" class="w-25 h-25"
+            >
+        </ng-template>
+ 
+  <div class="row">
+
+    <div class="col-md-6"> 
+        <mat-form-field >
+        <mat-label>name</mat-label>
+        <input matInput [(ngModel)]="data.userName" disabled>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6"> 
+         <mat-form-field>
+        <mat-label>email</mat-label>
+        <input matInput [(ngModel)]="data.email"  disabled>
+      </mat-form-field>
+    </div>
+  </div>
+
+    <div class="row">  
+        
+        <div class="col-md-6"> <mat-form-field>
+        <mat-label>phoneNumber</mat-label>
+        <input matInput [(ngModel)]="data.phoneNumber"  disabled>
+      </mat-form-field></div>
+  
+  <div class="col-md-6"> <mat-form-field>
+    <mat-label>country</mat-label>
+    <input matInput [(ngModel)]="data.country"  disabled>
+  </mat-form-field>
+</div></div>
+
+ 
+
+ 
+ 
+</div>
+<div mat-dialog-actions class="justify-content-between">
+  <button mat-button (click)="onNoClick()">CLOSE</button>
+
+</div>
+
+</section>

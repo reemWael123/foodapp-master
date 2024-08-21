@@ -1,0 +1,46 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="auth-card p-5">
+                     <div class="text-center">
+                        <img src="../../../../assets/icon.svg" alt="123">
+                     </div>
+                     <div class="tittel">
+                        <h3>Login</h3>
+                        <p>Welcome Back ! please enter your details</p>
+                     </div>
+ <!-- <div  [formGroup]="loginform" (ngSubmit)="whenlog(loginform)"> -->
+    <form [formGroup]="loginform" (ngSubmit)="whenlog(loginform)">
+         <div class="form" >
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile-screen"></i></span>
+            <input formControlName="email" type="email" class="form-control" placeholder="enter your email" aria-label="Username" aria-describedby="basic-addon1">
+           </div>
+           <div  *ngIf="loginform.get('email')?.errors&&loginform.get('email')?.touched" class="alert alert-danger">
+            <p *ngIf="loginform.get('email')?.getError('required')">email is required</p>
+            <p *ngIf="loginform.get('email')?.getError('email')">invalid email form</p>
+
+        </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+            <input formControlName="password" type="password" class="form-control" placeholder=" enter Password" aria-label="Username" aria-describedby="basic-addon1">
+  
+          </div>
+          <div  *ngIf="loginform.get('password')?.errors&&loginform.get('password')?.touched" class="alert alert-danger">
+            <p *ngIf="loginform.get('password')?.getError('required')">passwrod is required</p>
+            <p *ngIf="loginform.get('password')?.getError('pattern')">at laest 6 chars</p>
+           </div>
+          <div class="d-flex justify-content-between">
+        <a href="/auth/regester" class="reg-icon">Register now?</a>
+        <a class="text-main" href="/auth/Forget" >Forgot Password</a>
+    </div>
+    <button class=" w-100 m-1 p-2"  type="submit" >Login</button>
+    <p class="alert alert-danger" *ngIf="erroMsg">{{erroMsg}} </p>
+    </div>
+ </form>
+       </div></div>
+            </div>
+        </div>
+  
+</section>
