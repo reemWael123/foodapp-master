@@ -12,7 +12,7 @@ const routes: Routes = [
      { path: 'dashboard',canActivate:[authGuard], loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) }, { path: 'customers', loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule) }];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{useHash:true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
