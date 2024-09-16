@@ -13,11 +13,6 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./add-edit.component.scss']
 })
 export class AddEditComponent {
-  
-
-
-
-
   recipeform=new FormGroup({
     name:new FormControl(null),
     description :new FormControl(null),

@@ -1,8 +1,37 @@
-ngx-dropzone {
-    display: inline-block; /* Adjusts width to fit content */
-    width: auto; /* Automatically adjusts width based on content */
-    height: auto; /* Automatically adjusts height based on content */
-    max-width: 100%; /* Prevents overflow in case the content is larger than the viewport */
-    max-height: 100%; /* Prevents overflow in case the content is larger than the viewport */
-    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+// ngx-dropzone {
+//     display: inline-block; /* Adjusts width to fit content */
+//     width: auto; /* Automatically adjusts width based on content */
+//     height: auto; /* Automatically adjusts height based on content */
+//     max-width: 100%; /* Prevents overflow in case the content is larger than the viewport */
+//     max-height: 100%; /* Prevents overflow in case the content is larger than the viewport */
+//     box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+//   }
+  ngx-dropzone {
+    width: 120px !important;
+    height: 120px !important;
+    border-radius: 50% !important;
+    border-color: var(--main-color) !important;
+    overflow: hidden !important;
+    justify-content: center !important;
+    background-color: transparent !important;
+  }
+  
+  ngx-dropzone-preview {
+    height: 100% !important;
+    min-height: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  ngx-dropzone-image-preview {
+    height: 120px !important;
+    min-height: 120px !important;
+    margin: 0 !important;
+  }
+  
+  
+  ngx-dropzone-remove-badge {
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
   }
